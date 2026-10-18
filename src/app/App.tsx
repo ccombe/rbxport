@@ -3337,6 +3337,10 @@ function AppBody() {
             onRate={rateTracks}
             onComment={commentTracks}
             onEdit={runEdit}
+            onOpenPlaylist={(id) => {
+              const node = tree.find((n) => n.id === id);
+              if (node) setSelectedNode(node);
+            }}
           /></Suspense>
         ) : null}
         {myTagOpen ? (

@@ -1091,6 +1091,7 @@ export interface Backend {
    * are wanted for one track at a time. About 1 KB.
    */
   trackDetails(trackId: string): Promise<TrackDetails>;
+  trackPlaylists(trackId: string): Promise<RelatedPlaylist[]>;
 
   /**
    * Several tracks for the information panel's multiple selection: the
@@ -2151,6 +2152,13 @@ export interface TrackDetails {
   hasArtwork: boolean;
   /** The ids of the My Tags on the track. */
   myTags: string[];
+}
+
+export interface RelatedPlaylist {
+  id: string;
+  name: string;
+  /** Parent playlist/folder names, joined by " / "; empty at the root. */
+  path: string;
 }
 
 /**
